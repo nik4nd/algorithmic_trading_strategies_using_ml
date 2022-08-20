@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  nik4nd_jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ~/nik4nd/GitHub/docker:/home/jovyan/
+    ports:
+      - "8888:8888"
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
